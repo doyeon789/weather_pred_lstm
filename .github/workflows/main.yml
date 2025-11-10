@@ -21,12 +21,9 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip
-        pip install torch --index-url https://download.pytorch.org/whl/cpu \
-            pandas \
-            supabase \
-            scikit-learn \
-            numpy==1.24.3 \
-            scipy==1.10.1
+        pip install torch --index-url https://download.pytorch.org/whl/cpu
+        pip install pandas supabase scikit-learn numpy==1.24.3 scipy==1.10.1
 
     - name: Run training script
       run: python rnn.py
+
