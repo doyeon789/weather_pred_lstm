@@ -120,12 +120,12 @@ def calculate_power(irradiance_pred):
     power = base_power + led_power * (irradiance_pred / max_irradiance) + rgb_power + servo_power + sensor_power
     return power
 
-# --- 10. Supabase 업로드 전 오늘 데이터 삭제 (중복 방지) ---
-today = date.today().isoformat()
-supabase.table("prediction").delete() \
-    .gte("predicted_time", f"{today}T00:00:00Z") \
-    .lt("predicted_time", f"{today}T23:59:59Z") \
-    .execute()
+# --- 10. Supabase 업로드 전 기존 데이터 전체 삭제 ---
+try:
+    supabase.table("prediction").delete().execute()
+    print("🗑️ 기존 prediction 테이블의 모든 데이터 삭제 완료")
+except Exception as e:
+    print("❌ 데이터 전체 삭제 중 오류 발생:", e)
 
 # --- 11. 예측 결과 Supabase 업로드 ---
 records = []
