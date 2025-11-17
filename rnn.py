@@ -135,7 +135,7 @@ for pred_time, val in predictions:
 
 try:
     # 기존 모든 prediction 데이터 삭제
-    supabase.table("prediction").delete().neq("prediction_id", "").execute()
+    supabase.table("prediction").delete().neq("prediction_id", None).execute()
     print("🗑️ 기존 prediction 테이블의 모든 데이터 삭제 완료")
 
     # 새 데이터 삽입
