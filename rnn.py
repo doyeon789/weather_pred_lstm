@@ -112,10 +112,10 @@ with torch.no_grad():
 # --- 9. 전력 소비 계산 ---
 def calculate_power(irradiance_pred):
     max_irradiance = 1000
-    base_power = 1.0
-    led_power = 5 * 0.2
-    rgb_power = 4 * 0.05
-    servo_power = 2 * 0.1
+    base_power = 0.6
+    led_power = 5 * 0.53
+    rgb_power = 4 * 0.53
+    servo_power = 2 * 1.53
     sensor_power = 0.3
     power = base_power + led_power * (irradiance_pred / max_irradiance) + rgb_power + servo_power + sensor_power
     return power
