@@ -115,7 +115,7 @@ def calculate_power(irradiance_pred):
     base_power = 0.6
     led_power = 5 * 0.53
     rgb_power = 4 * 0.53
-    servo_power = 2 * 1.53
+    servo_power = (2 * 1.53)/50
     sensor_power = 0.3
     power = base_power + led_power * (irradiance_pred / max_irradiance) + rgb_power + servo_power + sensor_power
     return power
