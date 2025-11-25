@@ -1,4 +1,4 @@
-name: Train LSTM Model
+name: Train RNN Model
 
 on:
   schedule:
