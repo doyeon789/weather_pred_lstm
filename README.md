@@ -1,1 +1,1 @@
-# weather_pred_rnn
+# weather_pred_lstm
